@@ -8,4 +8,14 @@ class ProjectRepository < ROM::Repository::Root
   def all
     projects.all
   end
+
+  def by_id(id)
+    projects.by_pk(id).one!
+  end
+
+  private
+
+  def projects
+    super.map_to(Projects::Project)
+  end
 end
