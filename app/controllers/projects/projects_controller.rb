@@ -10,6 +10,14 @@ module Projects
       redirect_to action: :index
     end
 
+    def index
+      @projects = repo.all
+    end
+
+    def show
+      @project = repo.by_id(params[:id])
+    end
+
     private
 
     def project_params
